@@ -1,0 +1,36 @@
+@startuml
+
+abstract class Kue {
+    - nama: String
+    - harga: double
+    + Kue(nama: String, harga: double)
+    + hitungHarga(): double
+    + toString(): String
+}
+
+class KuePesanan {
+    - berat: double
+    + KuePesanan(nama: String, harga: double, berat: double)
+    + getBerat(): double
+    + hitungHarga(): double
+}
+
+class KueJadi {
+    - jumlah: double
+    + KueJadi(nama: String, harga: double, jumlah: double)
+    + getJumlah(): double
+    + hitungHarga(): double
+}
+
+class Main {
+    + main(args: String[]): void
+}
+
+Kue <|-- KuePesanan
+Kue <|-- KueJadi
+
+Main ..> Kue : menggunakan
+Main ..> KuePesanan : membuat
+Main ..> KueJadi : membuat
+
+@enduml

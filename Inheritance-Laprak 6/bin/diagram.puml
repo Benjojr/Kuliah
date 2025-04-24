@@ -1,0 +1,54 @@
+@startuml
+
+class Manusia {
+    - String nama
+    - boolean jenisKelamin
+    - String nik
+    - boolean menikah
+    + Manusia(String, String, boolean, boolean)
+    + double getTunjangan()
+    + boolean isMenikah()
+    + double getPendapatan()
+    + String toString()
+}
+
+class MahasiswaFILKOM extends Manusia {
+    - String nim
+    - double ipk
+    + MahasiswaFILKOM(String, String, boolean, boolean, String, double)
+    + double getBeasiswa(double)
+    + String getStatus(String)
+    + double getPendapatan()
+    + String toString()
+}
+
+class Pekerja extends Manusia {
+    - double gaji
+    - LocalDate tahunMasuk
+    - int jumlahAnak
+    + Pekerja(String, String, boolean, boolean, double, LocalDate, int)
+    - long getLamaBekerja()
+    + double getBonus()
+    + double getGaji()
+    + double getTunjangan()
+    + double getPendapatan()
+    + String toString()
+}
+
+class Manager extends Pekerja {
+    - String departemen
+    + Manager(String, String, boolean, boolean, double, LocalDate, int, String)
+    + double getTunjangan()
+    + String toString()
+}
+
+class Main {
+    + main(String[] args)
+}
+
+Main --> Manusia
+Main --> MahasiswaFILKOM
+Main --> Pekerja
+Main --> Manager
+
+@enduml

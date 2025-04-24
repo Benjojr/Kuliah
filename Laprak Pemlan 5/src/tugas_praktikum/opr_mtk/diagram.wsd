@@ -1,0 +1,20 @@
+@startuml
+package "tugas_praktikum.opr_mtk" {
+    class Main {
+        +main(String[] args) : void
+    }
+
+    ' Class perhitungan
+    class perhitungan {
+        +penjumlahan(int a, int b) : int
+        +pengurangan(int a, int b) : int
+        +perkalian(int a, int b) : int
+        +pembagian(int a, int b) : double
+        +Sederhana(int pembilang, int penyebut) : String
+        -hitungFPB(int a, int b) : int
+    }
+
+    ' Relationships
+    Main --> perhitungan : Menggunakan
+}
+@enduml

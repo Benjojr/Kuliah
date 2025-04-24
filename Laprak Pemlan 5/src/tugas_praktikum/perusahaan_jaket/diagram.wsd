@@ -1,0 +1,22 @@
+@startuml
+package "tugas_praktikum.perusahaan_jaket" {
+
+    class Main {
+        +main(String[] args) : void
+    }
+
+    class harga {
+        -harga_A : int
+        -harga_B : int
+        -harga_C : int
+        -diskon_A : int
+        -diskon_B : int
+        -diskon_C : int
+        +beliJaketA(jumlah : int) : int
+        +beliJaketB(jumlah : int) : int
+        +beliJaketC(jumlah : int) : int
+    }
+
+    Main --> harga : menggunakan
+}
+@enduml
