@@ -1,0 +1,41 @@
+@startuml
+
+class Main {
+    +main(args: String[]): void
+}
+
+class Pelanggan {
+    - nama: String
+    - PIN: int
+    - saldo: int
+    - noPelanggan: long
+    - noPelangganString: String
+    - diblokir: boolean
+    - percobaan: int
+    - cashback: double
+    + Pelanggan(nama: String, noPelanggan: long, PIN: int)
+    + getNama(): String
+    + isDiblokir(): boolean
+    + getPercobaan(): int
+    + topUp(nominal: int): void
+    + displaySaldo(): void
+    - cekNoPelanggan(noPelanggan: long): boolean
+    - cekPIN(PIN: int): boolean
+    + verify(noPelanggan: long, PIN: int): boolean
+    - cashback(noPelangganString: String, harga: int): boolean
+    + beli(pilihan: int): void
+}
+
+class DaftarProduk {
+    - daftarProduk: String[]
+    - hargaProduk: int[]
+    + DaftarProduk()
+    + getDaftarProduk(): String[]
+    + getHargaProduk(): int[]
+}
+
+Main --> Pelanggan : menggunakan
+Main --> DaftarProduk : menggunakan
+Pelanggan --> DaftarProduk : menggunakan
+
+@enduml
